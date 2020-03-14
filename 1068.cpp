@@ -11,15 +11,10 @@ using namespace std;
 
 int main(){
     string polinomio;
-    int n;
 
-    cin >> n;
-
-    for(int i=0;i<n;i++){
+    while(getline(cin,polinomio)){
         stack<char> parentesis_abre;
         stack<char> parentesis_fecha;
-        cin>>ws;
-        getline(cin,polinomio);
         for(int j=0;j<polinomio.size();j++){
             if(polinomio.at(j)=='(')
                 parentesis_abre.push('(');
@@ -37,6 +32,6 @@ int main(){
         if(parentesis_abre.empty() && parentesis_fecha.empty())
             cout << "correct" << endl;
             else
-                cout << "incorrect" << endl;            
+                cout << "incorrect" << endl;           
     }
 }
