@@ -1,3 +1,8 @@
+/*  @toffanetto
+*   Gabriel Toffanetto França da Rocha
+*   Universidade Federal de Itajubá - Campus Itabira
+*   1062 - Trilhos
+*/
 #include <iostream>
 #include <stack>
 
