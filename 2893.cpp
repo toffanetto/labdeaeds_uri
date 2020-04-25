@@ -41,5 +41,4 @@ int main(){
         }
         cout << sequencia.back()%1000007 << endl;
     }
-    cout  << endl;
 }
