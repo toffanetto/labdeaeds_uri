@@ -1,7 +1,7 @@
 /*  @toffanetto
 *   Gabriel Toffanetto França da Rocha
 *   Universidade Federal de Itajubá - Campus Itabira
-    1110 - Jogando Cartas Fora
+*   1110 - Jogando Cartas Fora
 */
 
 #include <iostream>
@@ -12,7 +12,7 @@ using namespace std;
 int main(){
     int n;
     queue<int> monte;
-    
+
     while(true){
         cin >> n;
         if(n==0)
