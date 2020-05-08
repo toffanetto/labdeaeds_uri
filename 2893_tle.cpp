@@ -10,7 +10,8 @@
 using namespace std;
 
 int main(){
-    int n, k, t;
+    long long int t, n, k;
+
     cin >> t;
 
     for(int i=0;i<t;i++){
@@ -24,18 +25,19 @@ int main(){
         }
 
         for(int j=0;j<n;j++){
-            if(j<k){
+            if(j<k)
                 sequencia.push(j);
-                soma+=j%1000007;
-            }
-                else if(j==k){
-                    sequencia.push(soma%1000007);
-                }
-                    else{
-                        soma+=(soma-sequencia.front())%1000007;
-                        sequencia.push(soma%1000007);
+                else{
+                    for(int l=0;l<k;l++){
+                        long long int aux = sequencia.front();
+                        soma+=aux;
+                        sequencia.push(aux);
                         sequencia.pop();
                     }
+                    sequencia.push(soma%1000007);
+                    sequencia.pop();
+                }
+                soma=0;
         }
         cout << sequencia.back()%1000007 << endl;
     }
