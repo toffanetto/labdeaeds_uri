@@ -9,52 +9,37 @@
 
 using namespace std;
 
+typedef pair<long long, long long> pll;
+
 int main(){
+
     int n;
+
     while(cin >> n){
 
         uint64_t tempo=0;
-        int t,c;
-        vector<int> ciclos (100000);
-        queue<pair<int,int>> programas; // <tempo de chegada,tempo em espera>
+        int t, c, clock=1, executando=0;
+        priority_queue<pll,  vector<pll>, greater<pll>> executar; //<tempo_chegou, tempo_executando>
+        priority_queue<pll,  vector<pll>, greater<pll>> iniciar;
 
         for(int i=0;i<n;i++){
             cin >> t >> c;
-            ciclos.at(t)=c;
-            programas.push(make_pair(t,0));
+            iniciar.push(make_pair(t,c));
         }
-/*
-        for(int i=0;i<n;i++){
-            int id = programas.front().first;
-            cout << "---" << id << "   " << ciclos.at(id) << endl;
-            programas.pop();
-            programas.push(make_pair(id,0));
-        }
-*/
-        int clock=1;
-
-        while(!programas.empty()){
-            cout << "---ON Ciclo " << clock;
-            t=programas.front().first;
-            c=ciclos.at(t);
-            clock+=c;
-            cout << "--- ESPERANDO " << programas.front().second;
-            tempo+=programas.front().second;
-            programas.pop();
-            cout << " ID " << t<< " C " << c << endl;
-            for(int i=0;i<programas.size();i++){
-                int id = programas.front().first;
-                programas.pop();
-                if(id<clock){
-                    int esperando =(clock-id-t);
-                    programas.push(make_pair(id,esperando));
-                }
-                    else 
-                        programas.push(make_pair(id,0));
+        
+        while(!iniciar.empty() || !executar.empty()){
+            while(!iniciar.empty() && (iniciar.top().first)<=clock){
+                executar.push(make_pair(iniciar.top().second,iniciar.top().first));
+                iniciar.pop();
+            }
+            if(!executar.empty()){
+                tempo+=(clock-executar.top().second);
+                clock+=executar.top().first;
+                executar.pop();
+            }   else{
+                    clock++;
             }
         }
-
         cout << tempo << endl;
     }
 }
-
