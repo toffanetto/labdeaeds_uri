@@ -19,9 +19,8 @@ int main(){
             cin >> catalago.at(i);
         }
         sort(catalago.begin(),catalago.end());
-        for(int i=0;i<n;i++){
-            cout << catalago.at(i) << endl;
-        }
+        for(auto& num : catalago)
+            cout << num << endl;
     }
     return EXIT_SUCCESS;
 }
