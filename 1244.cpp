@@ -7,7 +7,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <queue>
 
 using namespace std;
 
@@ -26,7 +25,6 @@ int main(){
         string linha;
         int num=0;
 
-        //cin>>ws;
         getline(cin, linha);
         
 
