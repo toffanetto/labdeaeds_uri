@@ -64,6 +64,8 @@ int main(){
                                                                                     else 
                                                                                         return y.second > x.second; });
 
+            //stable_sort() funcionaria perfeitamente sem gambiarra
+
             
             for(int j=0;j<palavras.size();j++){
 
