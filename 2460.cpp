@@ -6,12 +6,14 @@
 
 #include <iostream>
 #include <list>
+#include <unordered_set>
 
 using namespace std;
 
 int main(){
     int n,m;
     list<int> fila;
+    unordered_set<int> saiu;
     cin >> n;
     for(int i=0;i<n;i++){
         int aux;
@@ -23,23 +25,14 @@ int main(){
     for(int i=0;i<m;i++){
         int aux;
         cin >> aux;
-        for(int j=0;j<n;j++){
-            if(fila.front()==aux){
-                fila.pop_front();
-                j++;
-                continue;
-            }
-            int frente = fila.front();
-            fila.pop_front();
-            fila.push_back(frente);
-        }
+        saiu.insert(aux);
     }
-
-    cout << fila.front();
-    fila.pop_front();
-
+    string espaco = "";
     while(!fila.empty()){
-        cout << " " << fila.front();
+        if(saiu.find(fila.front())==saiu.end()){
+            cout << espaco << fila.front();
+            espaco=" ";
+        }
         fila.pop_front();
     }
     cout << endl;
