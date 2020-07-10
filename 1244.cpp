@@ -26,7 +26,7 @@ int main(){
         int num=0;
 
         getline(cin, linha);
-        
+        /
 
         for(int j=0;j<linha.size();j++){
             if(linha.at(j)==' ')
