@@ -20,18 +20,16 @@ int main(){
                 parentesis_abre.push('(');
                 else if(polinomio.at(j)==')'){
                     parentesis_fecha.push(')');
-                    if(!parentesis_abre.empty()){
-                        if(polinomio.at(j) != parentesis_abre.top()){
-                            parentesis_abre.pop();
-                            parentesis_fecha.pop();
-                        }
+                if(!parentesis_abre.empty() && polinomio.at(j) != parentesis_abre.top()){
+                    parentesis_abre.pop();
+                    parentesis_fecha.pop();
                     }
                 }
-        
+
         }
         if(parentesis_abre.empty() && parentesis_fecha.empty())
             cout << "correct" << endl;
             else
-                cout << "incorrect" << endl;           
+                cout << "incorrect" << endl;
     }
 }
